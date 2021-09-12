@@ -138,7 +138,11 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	return 0;
 
 	}
-	return DefWindowProc(hwnd, uMsg, wParam, lParam);
+	/*
+		Calls the default Windows Procedure
+		see: https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-defwindowproca
+	*/
+	return DefWindowProc(hwnd, uMsg, wParam, lParam); 
 }
 
 
