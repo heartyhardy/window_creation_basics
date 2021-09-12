@@ -6,6 +6,10 @@
 */
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
+/*
+		Entry point for our windows app
+		see: https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-winmain
+*/
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
 {
@@ -52,25 +56,25 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 		NULL					// Additional App data
 	);
 
-	// If Window creation failed CreateWindowEX will return NULL
+	//	If Window creation failed CreateWindowEX will return NULL
 	if (hWnd == NULL) {
 		return 0;
 	}
 
 	/*
-		Display the window according to the nCmdShow args
-		see: https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-showwindow
+			Display the window according to the nCmdShow args
+			see: https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-showwindow
 	*/
 	ShowWindow(hWnd, nCmdShow);
 
 	/*
-		The Message Loop
+			The Message Loop
 
-		For each thread that creates a window, the operating system creates a queue for window messages.
-		Loop and receive all these messages and dispatch them to the correct window procedure
+			For each thread that creates a window, the operating system creates a queue for window messages.
+			Loop and receive all these messages and dispatch them to the correct window procedure
 
-		MSG structure is filled with the info about the message, if a message is successfully pulled from the queue.
-		See: https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getmessage
+			MSG structure is filled with the info about the message, if a message is successfully pulled from the queue.
+			See: https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getmessage
 	*/
 
 	MSG msg;
@@ -97,10 +101,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 }
 
 /*
-	Windows procedure
-	hwnd: Handle to the Window
-	uMsg: Code of the received message
-	wParam and lParam: Additional data passed with the message
+		Windows procedure
+			hwnd: Handle to the Window
+			uMsg: Code of the received message
+			wParam and lParam: Additional data passed with the message
 */
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
@@ -139,8 +143,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 	}
 	/*
-		Calls the default Windows Procedure
-		see: https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-defwindowproca
+				Calls the default Windows Procedure
+				see: https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-defwindowproca
 	*/
 	return DefWindowProc(hwnd, uMsg, wParam, lParam); 
 }
